@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque | ASTRYX</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/storage.js" defer></script>
+    <script src="js/estoque.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo">
+        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="rastreamento.html">Rastreamento</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+
+        <div class="cabecalho-pagina">
+            <p class="sobretitulo">ASTRYX • ADMINISTRAÇÃO</p>
+            <h1>Controle de estoque</h1>
+            <p>Consulte e atualize as quantidades de produtos.</p>
+        </div>
+
+        <!-- Cadastro de novos produtos -->
+        <section class="painel">
+
+            <h2>Adicionar novo produto</h2>
+
+            <form id="form-produto" class="grade-form">
+
+                <label>
+                    Nome
+                    <input id="nome" required placeholder="Nome do produto">
+                </label>
+
+                <label>
+                    Categoria
+                    <select id="categoria">
+                        <option>Anéis</option>
+                        <option>Colares</option>
+                        <option>Pulseiras</option>
+                    </select>
+                </label>
+
+                <label>
+                    Preço (R$)
+                    <input id="preco" type="number" min="0.01" step="0.01" required>
+                </label>
+
+                <label>
+                    Quantidade
+                    <input id="quantidade" type="number" min="0" step="1" required>
+                </label>
+
+                <button class="botao" type="submit">
+                    Adicionar produto
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Tabela de estoque -->
+        <section class="painel">
+            <h2>Produtos e quantidades</h2>
+
+            <div id="tabela-estoque"></div>
+
+            <p id="mensagem" class="mensagem"></p>
+        </section>
+
+    </main>
+
+    <footer>
+        © <span id="ano"></span> ASTRYX — Jewelry & Technology.
+    </footer>
+
+</body>
+</html>
