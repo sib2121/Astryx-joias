@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos | ASTRYX</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/storage.js" defer></script>
+    <script src="js/produtos.js" defer></script>
+</head>
+
+<body>
+
+    <header class="topo">
+        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="carrinho.html">Carrinho</a>
+            <a href="reservas.html">Reservas</a>
+            <a href="pedidos.html">Pedidos</a>
+            <a href="rastreamento.html">Rastreamento</a>
+        </nav>
+    </header>
+
+    <main class="pagina">
+
+        <div class="cabecalho-pagina">
+            <p class="sobretitulo">ASTRYX • COLEÇÃO</p>
+            <h1>Nossa coleção</h1>
+            <p>Explore as peças disponíveis na coleção ASTRYX.</p>
+        </div>
+
+        <!-- Pesquisa e filtro de produtos -->
+        <section class="barra-acoes">
+
+            <input
+                id="busca"
+                type="search"
+                placeholder="Buscar produto..."
+            >
+
+            <select id="filtro">
+                <option value="todos">Todas as categorias</option>
+                <option value="Anéis">Anéis</option>
+                <option value="Colares">Colares</option>
+                <option value="Pulseiras">Pulseiras</option>
+            </select>
+
+        </section>
+
+        <!-- Os produtos serão carregados pelo JavaScript -->
+        <section id="lista-produtos" class="cards produtos-grid"></section>
+
+        <p id="mensagem" class="mensagem"></p>
+
+    </main>
+
+    <footer>
+        © <span id="ano"></span> ASTRYX — Jewelry & Technology.
+    </footer>
+
+</body>
+</html>
