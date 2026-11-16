@@ -1,0 +1,42 @@
+
+ name: Pipeline ASTRYX
+ 
+# Executa quando houver alterações no GitHub
+on:
+  push:
+    branches:
+      - main
+ 
+  pull_request:
+    branches:
+      - main
+ 
+jobs:
+ 
+  verificar-projeto:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+ 
+      # Baixa os arquivos do projeto
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+ 
+      # Configura o Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+ 
+      # Verifica os arquivos HTML
+      - name: Verificar HTML
+        run: npx --yes htmlhint "**/*.html"
+ 
+      # Verifica a sintaxe dos arquivos JavaScript
+      - name: Verificar JavaScript
+        run: |
+          for arquivo in js/*.js; do
+            node --check "$arquivo"
+          done
+ 
