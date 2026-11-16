@@ -1,5 +1,4 @@
-
- name: Pipeline ASTRYX
+name: Pipeline ASTRYX
  
 # Executa quando houver alterações no GitHub
 on:
