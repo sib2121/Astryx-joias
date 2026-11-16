@@ -1,41 +1,54 @@
+
 name: Pipeline ASTRYX
- 
+
 # Executa quando houver alterações no GitHub
 on:
   push:
     branches:
       - main
- 
+
   pull_request:
     branches:
       - main
- 
+
 jobs:
- 
   verificar-projeto:
- 
     runs-on: ubuntu-latest
- 
+
     steps:
- 
       # Baixa os arquivos do projeto
       - name: Baixar projeto
         uses: actions/checkout@v4
- 
+
+      # Configura o Python
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Instala as dependências
+      - name: Instalar Flask
+        run: |
+          python -m pip install --upgrade pip
+          pip install flask
+
+      # Verifica a sintaxe do Python
+      - name: Verificar Python
+        run: python -m compileall -q .
+
       # Configura o Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
- 
+
       # Verifica os arquivos HTML
       - name: Verificar HTML
-        run: npx --yes htmlhint "**/*.html"
- 
+        run: npx --yes htmlhint "templates/*.html"
+
       # Verifica a sintaxe dos arquivos JavaScript
       - name: Verificar JavaScript
         run: |
-          for arquivo in js/*.js; do
+          for arquivo in static/js/*.js; do
             node --check "$arquivo"
           done
- 
