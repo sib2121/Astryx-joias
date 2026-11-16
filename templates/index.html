@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASTRYX | Jewelry & Technology</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <script src="js/storage.js" defer></script>
-    <script src="js/inicio.js" defer></script>
+    <script src="{{ url_for('static', filename='js/storage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/inicio.js') }}" defer></script>
 </head>
 
 <body>
@@ -111,4 +112,5 @@
     </footer>
 
 </body>
+
 </html>
