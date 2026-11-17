@@ -1,41 +1,57 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Produtos | ASTRYX</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <script src="js/storage.js" defer></script>
-    <script src="js/produtos.js" defer></script>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/storage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/produtos.js') }}" defer></script>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO -->
     <header class="topo">
-        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
 
+        <a class="logo" href="{{ url_for('inicio') }}">
+            ASTRYX<span>◆</span>
+        </a>
+
+        <!-- MENU DE NAVEGAÇÃO -->
         <nav class="menu">
-            <a href="index.html">Início</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="reservas.html">Reservas</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="rastreamento.html">Rastreamento</a>
+            <a href="{{ url_for('inicio') }}">Início</a>
+            <a href="{{ url_for('produtos') }}">Produtos</a>
+            <a href="{{ url_for('estoque') }}">Estoque</a>
+            <a href="{{ url_for('carrinho') }}">Carrinho</a>
+            <a href="{{ url_for('reservas') }}">Reservas</a>
+            <a href="{{ url_for('pedidos') }}">Pedidos</a>
+            <a href="{{ url_for('rastreamento') }}">Rastreamento</a>
         </nav>
+
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina">
 
         <div class="cabecalho-pagina">
             <p class="sobretitulo">ASTRYX • COLEÇÃO</p>
+
             <h1>Nossa coleção</h1>
-            <p>Explore as peças disponíveis na coleção ASTRYX.</p>
+
+            <p>
+                Explore as peças disponíveis na coleção ASTRYX.
+            </p>
         </div>
 
-        <!-- Pesquisa e filtro de produtos -->
+        <!-- PESQUISA E FILTRO DE PRODUTOS -->
         <section class="barra-acoes">
 
             <input
@@ -53,16 +69,19 @@
 
         </section>
 
-        <!-- Os produtos serão carregados pelo JavaScript -->
+        <!-- LISTA DE PRODUTOS CARREGADA PELO JAVASCRIPT -->
         <section id="lista-produtos" class="cards produtos-grid"></section>
 
+        <!-- MENSAGEM DE RETORNO -->
         <p id="mensagem" class="mensagem"></p>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         © <span id="ano"></span> ASTRYX — Jewelry & Technology.
     </footer>
 
 </body>
+
 </html>
