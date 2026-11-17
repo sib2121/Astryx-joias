@@ -1,48 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Rastreamento | ASTRYX</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <script src="js/storage.js" defer></script>
-    <script src="js/rastreamento.js" defer></script>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/storage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/rastreamento.js') }}" defer></script>
 </head>
 
 <body>
 
+    <!-- CABEÇALHO -->
     <header class="topo">
-        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
 
+        <a class="logo" href="{{ url_for('inicio') }}">
+            ASTRYX<span>◆</span>
+        </a>
+
+        <!-- MENU DE NAVEGAÇÃO -->
         <nav class="menu">
-            <a href="index.html">Início</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="reservas.html">Reservas</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="rastreamento.html">Rastreamento</a>
+            <a href="{{ url_for('inicio') }}">Início</a>
+            <a href="{{ url_for('produtos') }}">Produtos</a>
+            <a href="{{ url_for('estoque') }}">Estoque</a>
+            <a href="{{ url_for('carrinho') }}">Carrinho</a>
+            <a href="{{ url_for('reservas') }}">Reservas</a>
+            <a href="{{ url_for('pedidos') }}">Pedidos</a>
+            <a href="{{ url_for('rastreamento') }}">Rastreamento</a>
         </nav>
+
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina">
 
         <div class="cabecalho-pagina">
             <p class="sobretitulo">ASTRYX • ACOMPANHAMENTO</p>
+
             <h1>Rastreamento</h1>
-            <p>Informe o código do pedido para consultar o status.</p>
+
+            <p>
+                Informe o código do pedido para consultar o status.
+            </p>
         </div>
 
+        <!-- PAINEL DE RASTREAMENTO -->
         <section class="painel formulario">
 
             <form id="form-rastreio">
 
                 <label>
                     Código do pedido
+
                     <input
                         id="codigo"
+                        type="text"
                         required
                         placeholder="Ex.: AST-123456"
                     >
@@ -54,15 +73,18 @@
 
             </form>
 
+            <!-- RESULTADO DA CONSULTA -->
             <div id="resultado-rastreio" class="resultado"></div>
 
         </section>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer>
         © <span id="ano"></span> ASTRYX — Jewelry & Technology.
     </footer>
 
 </body>
+
 </html>
