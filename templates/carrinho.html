@@ -1,60 +1,95 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Carrinho | ASTRYX</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <script src="js/storage.js" defer></script>
-    <script src="js/carrinho.js" defer></script>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/storage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/carrinho.js') }}" defer></script>
 </head>
 
 <body>
 
+    <!-- MENU PRINCIPAL -->
     <header class="topo">
-        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
+
+        <a class="logo" href="{{ url_for('inicio') }}">
+            ASTRYX<span>◆</span>
+        </a>
 
         <nav class="menu">
-            <a href="index.html">Início</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="reservas.html">Reservas</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="rastreamento.html">Rastreamento</a>
+            <a href="{{ url_for('inicio') }}">Início</a>
+            <a href="{{ url_for('produtos') }}">Produtos</a>
+            <a href="{{ url_for('estoque') }}">Estoque</a>
+            <a href="{{ url_for('carrinho') }}">Carrinho</a>
+            <a href="{{ url_for('reservas') }}">Reservas</a>
+            <a href="{{ url_for('pedidos') }}">Pedidos</a>
+            <a href="{{ url_for('rastreamento') }}">Rastreamento</a>
         </nav>
+
     </header>
 
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina">
 
         <div class="cabecalho-pagina">
-            <p class="sobretitulo">ASTRYX • SUAS ESCOLHAS</p>
+
+            <p class="sobretitulo">
+                ASTRYX • SUAS ESCOLHAS
+            </p>
+
             <h1>Meu carrinho</h1>
-            <p>Confira os itens selecionados antes de finalizar seu pedido.</p>
+
+            <p>
+                Confira os itens selecionados antes de finalizar seu pedido.
+            </p>
+
         </div>
 
+
+        <!-- PAINEL DO CARRINHO -->
         <section class="painel">
 
-            <!-- Itens adicionados aparecem aqui -->
+            <!-- Produtos adicionados ao carrinho -->
             <div id="itens-carrinho"></div>
 
+
+            <!-- TOTAL DA COMPRA -->
             <div class="total-linha">
+
                 <strong>Total</strong>
-                <strong id="total">R$ 0,00</strong>
+
+                <strong id="total">
+                    R$ 0,00
+                </strong>
+
             </div>
 
-            <button id="finalizar" class="botao">
+
+            <!-- FINALIZAR PEDIDO -->
+            <button id="finalizar" class="botao" type="button">
                 Finalizar pedido
             </button>
 
+
+            <!-- MENSAGEM DE RETORNO -->
             <p id="mensagem" class="mensagem"></p>
 
         </section>
 
     </main>
 
+
+    <!-- RODAPÉ -->
     <footer>
         © <span id="ano"></span> ASTRYX — Jewelry & Technology.
     </footer>
