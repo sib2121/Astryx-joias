@@ -1,52 +1,73 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Criar conta | ASTRYX</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <script src="js/storage.js" defer></script>
-    <script src="js/cadastro.js" defer></script>
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/storage.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/cadastro.js') }}" defer></script>
 </head>
 
 <body>
 
-    <!-- Menu principal -->
+    <!-- MENU PRINCIPAL -->
     <header class="topo">
-        <a class="logo" href="index.html">ASTRYX<span>◆</span></a>
+
+        <a class="logo" href="{{ url_for('inicio') }}">
+            ASTRYX<span>◆</span>
+        </a>
 
         <nav class="menu">
-            <a href="index.html">Início</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="estoque.html">Estoque</a>
-            <a href="carrinho.html">Carrinho</a>
-            <a href="reservas.html">Reservas</a>
-            <a href="pedidos.html">Pedidos</a>
-            <a href="rastreamento.html">Rastreamento</a>
+            <a href="{{ url_for('inicio') }}">Início</a>
+            <a href="{{ url_for('produtos') }}">Produtos</a>
+            <a href="{{ url_for('estoque') }}">Estoque</a>
+            <a href="{{ url_for('carrinho') }}">Carrinho</a>
+            <a href="{{ url_for('reservas') }}">Reservas</a>
+            <a href="{{ url_for('pedidos') }}">Pedidos</a>
+            <a href="{{ url_for('rastreamento') }}">Rastreamento</a>
         </nav>
 
         <div class="conta">
-            <a href="login.html">Entrar</a>
+            <a href="{{ url_for('login') }}">Entrar</a>
         </div>
+
     </header>
 
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="pagina">
 
         <div class="cabecalho-pagina">
-            <p class="sobretitulo">ASTRYX • JEWELRY & TECHNOLOGY</p>
+
+            <p class="sobretitulo">
+                ASTRYX • JEWELRY & TECHNOLOGY
+            </p>
+
             <h1>Criar conta</h1>
-            <p>Faça seu cadastro para acompanhar suas compras e reservas.</p>
+
+            <p>
+                Faça seu cadastro para acompanhar suas compras e reservas.
+            </p>
+
         </div>
 
-        <!-- Formulário de cadastro -->
+
+        <!-- FORMULÁRIO DE CADASTRO -->
         <section class="painel formulario">
 
             <form id="form-cadastro">
 
                 <label>
                     Nome completo
+
                     <input
                         type="text"
                         id="nome"
@@ -56,8 +77,10 @@
                     >
                 </label>
 
+
                 <label>
                     E-mail
+
                     <input
                         type="email"
                         id="email"
@@ -66,8 +89,10 @@
                     >
                 </label>
 
+
                 <label>
                     Senha
+
                     <input
                         type="password"
                         id="senha"
@@ -77,8 +102,10 @@
                     >
                 </label>
 
+
                 <label>
                     Confirmar senha
+
                     <input
                         type="password"
                         id="confirmar-senha"
@@ -87,15 +114,21 @@
                     >
                 </label>
 
+
                 <button class="botao" type="submit">
                     Cadastrar
                 </button>
 
+
                 <p id="mensagem" class="mensagem"></p>
+
 
                 <p class="texto-centro">
                     Já tem uma conta?
-                    <a href="login.html">Faça login</a>.
+
+                    <a href="{{ url_for('login') }}">
+                        Faça login
+                    </a>.
                 </p>
 
             </form>
@@ -104,6 +137,8 @@
 
     </main>
 
+
+    <!-- RODAPÉ -->
     <footer>
         © <span id="ano"></span> ASTRYX — Jewelry & Technology.
     </footer>
